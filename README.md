@@ -1,2 +1,2 @@
 # hackerrank
-A selection of problems solved in HackerRank
+Problems solved in HackerRank
