@@ -14,17 +14,10 @@
 #This is a "method-only" submission.
 #You only need to complete this method.
 def InsertNth(head, data, position):
-    counter = 0
     n = Node(data=data)
     if position == 0:
         n.next = head
         head = n
         return head
-    traversal = head
-    while counter+1 != position and traversal.next:
-        counter += 1
-        traversal = traversal.next
-    temp = traversal.next
-    traversal.next = n
-    n.next = temp
+    head.next = InsertNth(head.next, data, position-1)
     return head
