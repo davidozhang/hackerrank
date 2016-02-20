@@ -1,14 +1,20 @@
 #!/usr/bin/python
 
-def fib(n):
-	if n==0 or n==1:
-		return 1
+def fib(memo, n):
+	if n == 1:
+		return memo[1]
+	elif n == 2:
+		return memo[2]
 	else:
-		return fib(n-1)+fib(n-2)
+		f = fib(memo, n-1) + fib(memo, n-2)
+		memo[n] = f
+		return f
 
 def main():
-	input = raw_input('Input: ')
-	print fib(input)
+	memo = {}
+	memo[1] = 1
+	memo[2] = 1
+	print fib(memo, 5)
 
 if __name__=='__main__':
 	main()
