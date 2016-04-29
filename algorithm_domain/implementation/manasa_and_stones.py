@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import sys
 s = set()
 a, b, n = 0, 0, 0
 
@@ -15,6 +16,7 @@ def recurse(memo, steps, value):
     memo[(steps+1, value+b)] = True
 
 def main():
+    sys.setrecursionlimit(100000)
     for _ in xrange(input()):
         global s, a, b, n
         memo = {}
