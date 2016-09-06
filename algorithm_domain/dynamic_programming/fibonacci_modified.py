@@ -17,3 +17,25 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+Second try: September 5
+
+#!/usr/bin/python
+
+def fib(n, memo):
+    if n in memo:
+        return memo[n]
+    memo[n] = fib(n-2, memo) + (fib(n-1, memo))**2
+    return memo[n]
+
+def main():
+    t1, t2, n = map(int, raw_input().split())
+    memo = {}
+    memo[1] = t1
+    memo[2] = t2
+    print fib(n, memo)
+    
+if __name__ == '__main__':
+    main()
+'''
