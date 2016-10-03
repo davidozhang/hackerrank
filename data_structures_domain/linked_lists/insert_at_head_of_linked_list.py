@@ -17,3 +17,12 @@ def Insert(head, data):
     n.next = head
     head = n
     return head
+
+'''
+Cleaner implementation
+October 1, 2016
+'''
+def Insert(head, data):
+    n = Node(data)
+    n.next = head
+    return n

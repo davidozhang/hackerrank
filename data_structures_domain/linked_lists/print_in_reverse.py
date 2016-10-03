@@ -17,3 +17,12 @@ def ReversePrint(head):
         return
     ReversePrint(head.next)
     print head.data
+
+'''
+Cleaner implementation
+October 1, 2016
+'''
+def ReversePrint(head):
+    if head is not None:
+        ReversePrint(head.next)
+        print head.data

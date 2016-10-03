@@ -21,3 +21,13 @@ def Insert(head, data):
         traversal = traversal.next
     traversal.next = Node(data=data)
     return head
+
+'''
+Cleaner implementation
+October 1, 2016
+'''
+def Insert(head, data):
+    if head is not None:
+        head.next = Insert(head.next, data)
+        return head
+    return Node(data)

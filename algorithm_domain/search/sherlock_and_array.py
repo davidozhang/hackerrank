@@ -2,18 +2,18 @@
 
 def main():
     for _ in xrange(input()):
-        n = int(raw_input())
-        arr = map(int, raw_input().strip().split(' '))
-        found = False
-        _left, _right = 0, sum(arr)
-        for i in xrange(n):
-            if i>=1:
-                _left += arr[i-1]
-            _right -= arr[i]
-            if _left == _right:
-                found = True
+        n = input()
+        a = map(int, raw_input().split())
+        left = 0
+        right = sum(a)
+        exists = False
+        for i in a:
+            right -= i
+            if left == right:
+                exists = True
                 break
-        print 'YES' if found else 'NO'
+            left += i
+        print 'YES' if exists else 'NO'
 
 if __name__ == '__main__':
     main()

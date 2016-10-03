@@ -11,8 +11,21 @@
  
  
 """
+'''
 def print_list(head):
     traversal = head
     while traversal:
         print traversal.data
         traversal = traversal.next
+'''
+
+'''
+Cleaner implementation
+October 1, 2016
+'''
+
+def print_list(head):
+    if head is not None:
+        print head.data
+        print_list(head.next)
+
