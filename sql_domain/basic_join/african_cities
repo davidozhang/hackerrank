@@ -1,0 +1,1 @@
+SELECT city.NAME FROM City city, Country country WHERE city.COUNTRYCODE = country.CODE AND country.CONTINENT = 'Africa';
