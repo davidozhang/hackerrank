@@ -1,18 +1,26 @@
-#!/usr/bin/python
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
 import heapq
 
-def merge(k, n, arrs):
-    print heapq.heapify(zip(*arrs)[0])
-
-
-def main():
-    arrs = []
-    k = 3
-    n = 4
-    arrs.append([1,3,5,7])
-    arrs.append([2,4,6,8])
-    arrs.append([0,9,10,11])
-    merge(k, n, arrs)
-
-if __name__ == '__main__':
-    main()
+class Solution:
+    # @param A : list of linked list
+    # @return the head node in the linked list
+    def mergeKLists(self, A):
+        head = ListNode(0)
+        current = head
+        heap = []
+        for l in A:
+            if l:
+                heapq.heappush(heap, (l.val, l))
+        
+        while len(heap) > 0:
+            smallest = heapq.heappop(heap)[1]
+            current.next = smallest
+            current = current.next
+            if smallest.next:
+                heapq.heappush(heap, (smallest.next.val, smallest.next))
+                
+        return head.next
