@@ -1,6 +1,33 @@
 #!/usr/bin/python
 
-component_size = 1
+#/usr/bin/python
+
+def main():
+    max_region = 0
+    n = input()
+    m = input()
+    matrix = []
+    visited = set()
+    for _ in xrange(n):
+        matrix.append(map(int, raw_input().split()))
+
+    def ff(x, y):
+        if x >= n or y >= m or x < 0 or y < 0:
+            return 0
+        if matrix[x][y] == 0 or (x, y) in visited:
+            return 0
+        visited.add((x, y))
+        return 1 + ff(x-1, y-1) + ff(x-1, y) + ff(x-1, y+1) + ff(x, y-1) + ff(x, y+1) + ff(x+1, y-1) + ff(x+1, y) + ff(x+1, y+1)
+
+    for i in xrange(n):
+        for j in xrange(m):
+            max_region = max(max_region, ff(i, j))
+    print max_region
+
+if __name__ == '__main__':
+    main()
+
+'''component_size = 1
 
 def explore(g, visited, u):
     for v in g[u]:
@@ -38,6 +65,6 @@ def main():
             max_component = max(max_component, component_size)
             component_size = 1
     print max_component
-        
+
 if __name__ == '__main__':
-    main()
+    main()'''
